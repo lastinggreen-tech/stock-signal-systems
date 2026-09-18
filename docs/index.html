@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>日本株テクニカルシグナル ダッシュボード</title>
+<style>
+  :root {
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #6b7280; --border: #e5e7eb; --card: #f9fafb;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0f1115; --fg: #e8eaed; --muted: #9aa0a6; --border: #2a2d34; --card: #171a21; }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 24px 16px 64px; background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Noto Sans JP", sans-serif;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; }
+  h1 { font-size: 1.4rem; margin: 0 0 4px; }
+  .updated { color: var(--muted); font-size: 0.85rem; margin-bottom: 20px; }
+  .summary { display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+  .stat {
+    background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+    padding: 12px 16px; min-width: 120px;
+  }
+  .stat .num { font-size: 1.5rem; font-weight: 600; }
+  .stat .label { color: var(--muted); font-size: 0.8rem; }
+  table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 10px; overflow: hidden; }
+  th, td { padding: 10px 12px; border-bottom: 1px solid var(--border); font-size: 0.85rem; text-align: left; }
+  th { color: var(--muted); font-weight: 500; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.02em; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .name-cell .name { font-weight: 600; }
+  .name-cell .code { color: var(--muted); font-size: 0.75rem; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 0.78rem; white-space: nowrap; }
+  .reasons { color: var(--muted); font-size: 0.78rem; }
+  .disclaimer { margin-top: 24px; color: var(--muted); font-size: 0.75rem; line-height: 1.6; }
+  @media (max-width: 640px) {
+    table, thead, tbody, th, td, tr { display: block; }
+    thead { display: none; }
+    tr { border-bottom: 1px solid var(--border); padding: 10px 0; }
+    td { border: none; padding: 3px 0; display: flex; justify-content: space-between; gap: 8px; }
+    td.num::before { content: attr(data-label); color: var(--muted); }
+    .name-cell { display: block; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>日本株テクニカルシグナル ダッシュボード</h1>
+    <div class="updated">最終更新: 2026-09-18 14:16 JST</div>
+
+    <div class="summary">
+      <div class="stat"><div class="num">10</div><div class="label">監視銘柄数</div></div>
+      <div class="stat"><div class="num" style="color:#0f9d58">2</div><div class="label">買いシグナル</div></div>
+      <div class="stat"><div class="num" style="color:#d93025">1</div><div class="label">売りシグナル</div></div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>銘柄</th><th>終値</th><th>SMA5</th><th>SMA25</th><th>RSI14</th><th>判定</th><th>根拠</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+    <tr>
+      <td class="name-cell">
+        <div class="name">トヨタ自動車</div>
+        <div class="code">7203.T</div>
+      </td>
+      <td class="num">3,014.0</td>
+      <td class="num">3,022.0</td>
+      <td class="num">3,061.8</td>
+      <td class="num">47.6</td>
+      <td>
+        <span class="badge" style="background:#9aa0a622;color:#9aa0a6;border:1px solid #9aa0a655;">
+          様子見
+        </span>
+      </td>
+      <td class="reasons">特筆すべき根拠なし</td>
+    </tr>
+    
+
+    <tr>
+      <td class="name-cell">
+        <div class="name">ソフトバンクグループ</div>
+        <div class="code">9984.T</div>
+      </td>
+      <td class="num">6,398.0</td>
+      <td class="num">6,189.2</td>
+      <td class="num">5,721.1</td>
+      <td class="num">57.9</td>
+      <td>
+        <span class="badge" style="background:#9aa0a622;color:#9aa0a6;border:1px solid #9aa0a655;">
+          様子見
+        </span>
+      </td>
+      <td class="reasons">特筆すべき根拠なし</td>
+    </tr>
+    
+
+    <tr>
+      <td class="name-cell">
+        <div class="name">ソニーグループ</div>
+        <div class="code">6758.T</div>
+      </td>
+      <td class="num">3,705.0</td>
+      <td class="num">3,738.2</td>
+      <td class="num">3,795.6</td>
+      <td class="num">47.3</td>
+      <td>
+        <span class="badge" style="background:#9aa0a622;color:#9aa0a6;border:1px solid #9aa0a655;">
+          様子見
+        </span>
+      </td>
+      <td class="reasons">特筆すべき根拠なし</td>
+    </tr>
+    
+
+    <tr>
+      <td class="name-cell">
+        <div class="name">三菱UFJフィナンシャル・グループ</div>
+        <div class="code">8306.T</div>
+      </td>
+      <td class="num">3,631.0</td>
+      <td class="num">3,665.2</td>
+      <td class="num">3,633.8</td>
+      <td class="num">49.6</td>
+      <td>
+        <span class="badge" style="background:#9aa0a622;color:#9aa0a6;border:1px solid #9aa0a655;">
+          様子見
+        </span>
+      </td>
+      <td class="reasons">特筆すべき根拠なし</td>
+    </tr>
+    
+
+    <tr>
+      <td class="name-cell">
+        <div class="name">日本電信電話(NTT)</div>
+        <div class="code">9432.T</div>
+      </td>
+      <td class="num">177.6</td>
+      <td class="num">178.2</td>
+      <td class="num">171.0</td>
+      <td class="num">64.7</td>
+      <td>
+        <span class="badge" style="background:#d9302522;color:#d93025;border:1px solid #d9302555;">
+          売りシグナル（強）
+        </span>
+      </td>
+      <td class="reasons">RSIが70を下抜け(買われすぎからの反落)・MACDがシグナルを下抜け(デッドクロス)</td>
+    </tr>
+    
+
+    <tr>
+      <td class="name-cell">
+        <div class="name">日立製作所</div>
+        <div class="code">6501.T</div>
+      </td>
+      <td class="num">5,524.0</td>
+      <td class="num">5,383.4</td>
+      <td class="num">5,347.4</td>
+      <td class="num">59.3</td>
+      <td>
+        <span class="badge" style="background:#0f9d5822;color:#0f9d58;border:1px solid #0f9d5855;">
+          買いシグナル（強）
+        </span>
+      </td>
+      <td class="reasons">ゴールデンクロス(SMA5がSMA25を上抜け)・MACDがシグナルを上抜け(ゴールデンクロス)</td>
+    </tr>
+    
+
+    <tr>
+      <td class="name-cell">
+        <div class="name">東京エレクトロン</div>
+        <div class="code">8035.T</div>
+      </td>
+      <td class="num">53,250.0</td>
+      <td class="num">51,498.0</td>
+      <td class="num">54,167.2</td>
+      <td class="num">45.9</td>
+      <td>
+        <span class="badge" style="background:#0f9d5822;color:#0f9d58;border:1px solid #0f9d5855;">
+          買いシグナル
+        </span>
+      </td>
+      <td class="reasons">MACDがシグナルを上抜け(ゴールデンクロス)</td>
+    </tr>
+    
+
+    <tr>
+      <td class="name-cell">
+        <div class="name">信越化学工業</div>
+        <div class="code">4063.T</div>
+      </td>
+      <td class="num">5,812.0</td>
+      <td class="num">5,767.4</td>
+      <td class="num">5,921.1</td>
+      <td class="num">42.1</td>
+      <td>
+        <span class="badge" style="background:#9aa0a622;color:#9aa0a6;border:1px solid #9aa0a655;">
+          様子見
+        </span>
+      </td>
+      <td class="reasons">特筆すべき根拠なし</td>
+    </tr>
+    
+
+    <tr>
+      <td class="name-cell">
+        <div class="name">KDDI</div>
+        <div class="code">9433.T</div>
+      </td>
+      <td class="num">3,056.0</td>
+      <td class="num">3,071.6</td>
+      <td class="num">2,961.2</td>
+      <td class="num">59.6</td>
+      <td>
+        <span class="badge" style="background:#9aa0a622;color:#9aa0a6;border:1px solid #9aa0a655;">
+          様子見
+        </span>
+      </td>
+      <td class="reasons">特筆すべき根拠なし</td>
+    </tr>
+    
+
+    <tr>
+      <td class="name-cell">
+        <div class="name">本田技研工業</div>
+        <div class="code">7267.T</div>
+      </td>
+      <td class="num">1,696.0</td>
+      <td class="num">1,688.6</td>
+      <td class="num">1,690.2</td>
+      <td class="num">54.3</td>
+      <td>
+        <span class="badge" style="background:#9aa0a622;color:#9aa0a6;border:1px solid #9aa0a655;">
+          様子見
+        </span>
+      </td>
+      <td class="reasons">特筆すべき根拠なし</td>
+    </tr>
+    
+      </tbody>
+    </table>
+
+    <div class="disclaimer">
+      本ダッシュボードはSMA/RSI/MACDなど一般的なテクニカル指標に基づく機械的な参考情報であり、
+      投資助言ではありません。将来の値動きを保証するものではなく、投資判断はご自身の責任で行ってください。
+    </div>
+  </div>
+</body>
+</html>
