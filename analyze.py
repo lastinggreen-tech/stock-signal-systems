@@ -13,6 +13,7 @@
     pip install -r requirements.txt
     python analyze.py
 """
+import os
 import sys
 import time
 import traceback
@@ -35,7 +36,6 @@ def fetch_and_evaluate(code: str):
     if df is None or df.empty:
         raise RuntimeError(f"{code}: データを取得できませんでした")
 
-    # yfinanceがMultiIndex列を返すケースに対応
     if isinstance(df.columns, pd.MultiIndex):
         df.columns = df.columns.get_level_values(0)
 
@@ -71,7 +71,6 @@ def main():
                 f"根拠: {reasons}"
             )
 
-        # yfinanceへの過度なリクエストを避けるための小休止
         time.sleep(1)
 
     if notify_lines:
@@ -81,6 +80,7 @@ def main():
         print("[info] 本日はシグナル該当銘柄がありませんでした")
 
     if results:
+        os.makedirs("docs", exist_ok=True)
         html = build_dashboard_html(results)
         with open("docs/index.html", "w", encoding="utf-8") as f:
             f.write(html)
