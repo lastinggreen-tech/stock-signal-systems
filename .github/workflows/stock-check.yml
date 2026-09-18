@@ -1,0 +1,38 @@
+name: 日本株テクニカルシグナルチェック
+
+on:
+  schedule:
+    - cron: "0 23 * * 0-4"   # JST 08:00 (月〜金)
+    - cron: "40 6 * * 1-5"   # JST 15:40 (月〜金)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: リポジトリを取得
+        uses: actions/checkout@v4
+
+      - name: Pythonをセットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: 依存ライブラリをインストール
+        run: pip install -r requirements.txt
+
+      - name: 分析を実行してLINE通知・ダッシュボード更新
+        env:
+          LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
+        run: python analyze.py
+
+      - name: ダッシュボードの変更をコミット
+        run: |
+          git config user.name "stock-signal-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add docs/index.html
+          git diff --cached --quiet || git commit -m "Update dashboard $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          git push
